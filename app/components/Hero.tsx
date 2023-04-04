@@ -1,23 +1,63 @@
-import React from "react";
+"use client";
 
-type Props = {};
+import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
+import { RiArrowRightSLine } from "react-icons/ri";
 
-const Hero = (props: Props) => {
+const Hero = () => {
+  const headingVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 1 } },
+  };
+
   return (
-    <div className="w-3/4 mx-auto h-[70vh] bg-gradient-to-r from-slate-400 to-slate-600 rounded-lg mt-10 flex justify-around gap-6">
-      <img
-        src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=455&q=80"
-        alt="image"
-      />
-      <div className="flex items-center p-10 flex-col">
-        <h1>Hi!! I'm Jeevan</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus
-          delectus perspiciatis incidunt illo aliquid. Repudiandae earum rem
-          pariatur eaque eligendi ullam, possimus, esse commodi, at voluptates
-          molestiae dolorem nam placeat!
-        </p>
-      </div>
+    <div className="flex flex-col justify-center h-screen px-6 lg:px-20">
+      <motion.h1
+        className="text-5xl md:text-7xl font-bold text-gray-800"
+        variants={headingVariants}
+        initial="initial"
+        animate="animate"
+      >
+        Hi, I'm Jeevan,
+      </motion.h1>
+      <motion.h2
+        className="text-3xl md:text-5xl font-bold text-gray-800 mt-4"
+        variants={headingVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ delay: 1 }}
+      >
+        I'm a&nbsp;
+        <Typewriter
+          words={[
+            "Front-end Developer",
+            "UI/UX Designer",
+            "React Developer",
+            "Web Enthusiast",
+          ]}
+          loop={true}
+          cursor
+          cursorStyle="_"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={1500}
+        />
+      </motion.h2>
+      <motion.div
+        className="flex items-center mt-10"
+        variants={headingVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ delay: 2 }}
+      >
+        <a
+          href="#"
+          className="text-gray-800 font-bold text-xl hover:text-gray-600 flex items-center"
+        >
+          View My Work
+          <RiArrowRightSLine className="ml-2" />
+        </a>
+      </motion.div>
     </div>
   );
 };

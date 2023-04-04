@@ -1,16 +1,23 @@
 import React from "react";
+import { BsFacebook, BsTwitter, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { IoLogoWebComponent } from "react-icons/io5";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <div className="flex justify-evenly py-6">
-      <div></div>
-      <div className="flex justify-between gap-6">
-        <a href="#hero">About Me</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Works">Works</a>
-        <a href="#Footer">Contact Me</a>
+    <div className="mb-4 p-4 flex justify-between items-center">
+      <div className="text-4xl flex items-center">
+        <IoLogoWebComponent /> <span className="text-lg">Jeevan</span>
+      </div>
+      <div className="flex gap-2 justify-center items-center">
+        <BsFacebook cursor={"pointer"} size={18} />
+        <BsInstagram cursor={"pointer"} size={18} />
+        <BsTwitter cursor={"pointer"} size={18} />
+        <BsLinkedin cursor={"pointer"} size={18} />
+        <button className="bg-slate-800 text-white p-2 rounded-md">
+          Hire Me
+        </button>
       </div>
     </div>
   );
